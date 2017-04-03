@@ -5,14 +5,14 @@ fib:
   sw $a0, 0($sp)
 
 # if n=0
-  bne $s0, $zero, ELSE_1 # n!=0 pula
+  bne $a0, $zero, ELSE_1 # n!=0 pula
   addi $sp, $sp, 12      # restaura contexto
   add $v0, $zero, $zero  # return 0
   jr $ra                 # retorna
 
 # else if n=1
 ELSE_1:
-  sltiu $t0, $s0, 2      # n=1
+  sltiu $t0, $a0, 2      # n=1
   beq $t0, $zero, ELSE_2 # false pula
   addi $sp, $sp, 12      # restaura contexto
   addi $v0, $zero, 1     # return 1
